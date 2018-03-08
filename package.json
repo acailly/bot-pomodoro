@@ -1,0 +1,9 @@
+{
+  "name": "bot-pomodoro",
+  "version": "1.0.0",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "cross-env": "5.0.5",
+    "progress": "^2.0.0"
+  }
+}
