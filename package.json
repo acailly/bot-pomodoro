@@ -4,6 +4,7 @@
   "dependencies": {
     "chalk": "^2.3.0",
     "cross-env": "5.0.5",
+    "node-notifier": "^5.2.1",
     "progress": "^2.0.0"
   }
 }

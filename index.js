@@ -1,5 +1,6 @@
 const ProgressBar = require("progress");
 const chalk = require("chalk");
+const notifier = require("node-notifier");
 
 let timer;
 
@@ -7,7 +8,11 @@ const tick = (bar, timeBetweenTwoTicksInMs) => {
   timer = setTimeout(function() {
     bar.tick();
     if (bar.complete) {
-      console.log("\ncomplete\n");
+      console.log("\nPomodoro complete\n");
+      notifier.notify({
+        title: "Pomodoro complete",
+        message: "Take a break"
+      });
       stopCurrentPomodoro();
     } else {
       tick(bar, timeBetweenTwoTicksInMs);
@@ -44,6 +49,10 @@ module.exports = function(vorpal) {
         });
         tick(bar, timeBetweenTwoTicksInMs);
         console.log("Pomodoro started!");
+        notifier.notify({
+          title: "Pomodoro started",
+          message: minuteCount + " minutes"
+        });
         callback();
       }
     });
